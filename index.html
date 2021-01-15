@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebTreeVisualizer</title>
+
+    <!--This next line centers the canvas-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--script src="https://cdn.jsdelivr.net/gh/snydecor000/PewPewSpaceship-2.0/lib/p5.js"></script-->
+    <!--script src="https://cdn.jsdelivr.net/gh/snydecor000/PewPewSpaceship-2.0/lib/p5.sound.js"></script-->
+    <!--script src="https://cdn.jsdelivr.net/gh/snydecor000/PewPewSpaceship-2.0/lib/p5.play.js"></script-->
+    <script src="lib/p5.js"></script>
+    <script src="RedBlackTree.js"></script>
+    <script>
+        function myFunc() {
+            document.getElementById("btn insert").style.background='#000000';
+        }
+        function myOtherFunc() {
+            document.getElementById("btn insert").style.background='#FFFFFF';
+        }
+    </script>
+</head>
+
+<header>
+    <input id="inputText" type="text" size="1"></input>
+    <button id="btn insert" class="button1" onclick="insertButton(document.getElementById('inputText').value)">Insert</button>
+    <button id="btn remove" class="button1" onclick="myFunc()">Remove</button>
+    <button id="btn next" class="button1" onclick="myOtherFunc()">Next</button>
+    <button id="btn clear" class="button1" onclick="clearButton()">Clear</button>
+    <button id="btn undo" class="button1">Undo</button>
+</header>
+
+<body>
+    hey, anyone there?
+</body>
+
+</html>

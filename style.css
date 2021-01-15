@@ -1,0 +1,30 @@
+/* style.css 
+From: https://github.com/processing/p5.js/wiki/Positioning-your-canvas 
+*/
+
+html, body {
+    height: 100%;
+  }
+  
+header {
+    background-color:white;
+    margin: 0;
+    /*display: flex;*/
+    text-align: center;
+    /* This centers the sketch horizontally. */
+    /*justify-content: center;*/
+  
+    /* This centers the sketch vertically. */
+    /*align-items: top;*/
+  }
+
+  .button1 {
+    background-color: #F0F0F0;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 2px;
+  }
+
+  .button1:hover {
+    background-color:#E0E0E0;
+  }
