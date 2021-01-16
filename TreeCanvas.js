@@ -4,40 +4,33 @@ var Color = {
     BLACK: 2
 };
 var headerHeight;
+var fr = 30;
 
 function setup() {
+    frameRate(fr);
     //make the tree
-    tree = new RedBlackTree();
     headerHeight = document.getElementById("header").offsetHeight;
-
     //Create the canvas then properly size it
     canvas = createCanvas(1, 1);
     windowResized();
+
+    let startx = canvas.width/2;
+    let starty = 60;
+    tree = new RedBlackTree(startx, starty);
     update();
 }
 
 function draw() {
-
-}
-
-function update() {
     //black background: clear screen
     background(255);
 
-    let deltay = 80;
-    let deltax = 160;
-    let startx = canvas.width/2;
-    let starty = 60;
-    let radius = 40;
+    tree.draw();
+}
 
-    if(tree.root != null) tree.root.draw(startx,starty,deltax,deltay,radius);
-    else {
-        rectMode(CENTER);
-        fill(255);
-        stroke(0);
-        strokeWeight(2);
-        square(startx,starty,10);
-    }
+function update() {
+    let xWidth = 160;
+    let yHeight = 80;
+    tree.update(xWidth,yHeight);
 }
 
 function insertButton(element) {
@@ -55,6 +48,7 @@ function insertButton(element) {
 
 function clearButton(){
     tree.clear();
+    update();
 }
 
 //Event triggered when the window is resized
