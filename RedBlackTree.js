@@ -12,6 +12,13 @@ class RedBlackTree {
         this.rotationCount = 0;
     }
 
+    clear() {
+        this.root = null;
+        this.size = 0;
+        this.version = 0;
+        this.rotationCount = 0;
+    }
+
     insert(newElement) {
         if(this.root == null) {
             this.root = new BinaryNode(newElement);
@@ -188,33 +195,37 @@ class BinaryNode {
         
         return (leftHeight>rightHeight?leftHeight:rightHeight) + 1;
     }
-}
 
-var tree;
-
-function preload() {
-
-}
-
-function setup() {
-    tree = new RedBlackTree();
-}
-
-function draw() {
-    update()
-}
-
-function update() {
-
-}
-
-function insertButton(element) {
-    if(inputText != NaN) {
-        tree.insert(element);
+    draw(x,y,deltax,deltay,radius) {
+        fill(255);
+        stroke(0);
+        strokeWeight(1);
+        line(x,y,x+deltax/2,y+deltay);
+        line(x,y,x-deltax/2,y+deltay);
+        if(this.color == Color.RED) fill(color(255,0,0));
+        stroke(0);
+        strokeWeight(2);
+        circle(x,y,radius);
+        textAlign(CENTER, CENTER);
+        fill(0);
+        textSize(14);
+        strokeWeight(1);
+        text(this.element,x,y);
+        if(this.leftChild != null) this.leftChild.draw(x-deltax/2,y+deltay,deltax/2,deltay,radius);
+        else {
+            rectMode(CENTER);
+            fill(255);
+            stroke(0);
+            strokeWeight(2);
+            square(x-deltax/2,y+deltay,10);
+        }
+        if(this.rightChild != null) this.rightChild.draw(x+deltax/2,y+deltay,deltax/2,deltay,radius);
+        else {
+            rectMode(CENTER);
+            fill(255);
+            stroke(0);
+            strokeWeight(2);
+            square(x+deltax/2,y+deltay,10);
+        }
     }
-}
-
-function clearButton(){
-    console.log(tree.root);
-    tree.print();
 }
